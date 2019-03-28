@@ -1,10 +1,10 @@
 # ceng242-hw2-tester
 A primitive tester for ceng242 semester 2019-2 Hw2 written in haskell.
 
-##How-to
+## How-to
 Launch a terminal, and start the haskell interpreter ghci. Load the tester with :l test.hs and after both the tester and homework modules (hopefully) compile whisper "help".
 
-```ghci
+```ghci```
 
 Prelude> :l test.hs
 
@@ -14,4 +14,4 @@ Prelude> :l test.hs
 
 Ok, two modules loaded.
 
-*Main> help```
+```*Main> help```

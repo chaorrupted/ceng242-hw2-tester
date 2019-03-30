@@ -1,7 +1,7 @@
 import Hw2
 
 
-help = putStrLn "try \"test 1\" for isNumber, \"test2\" for eagerEvaluation and \"test 3\" for normalEvaluation. \ntry \"test 29\" for eagerEvaluation with erroneous inputs, and \"test 39\" for normalEvaluation with erroneous inputs."
+help = putStrLn "try \"test 1\" for isNumber, \"test 2\" for eagerEvaluation and \"test 3\" for normalEvaluation. \ntry \"test 29\" for eagerEvaluation with erroneous inputs, and \"test 39\" for normalEvaluation with erroneous inputs."
 
 
 checker' :: ([Bool], [Bool], Int) -> String

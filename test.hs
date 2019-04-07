@@ -32,8 +32,8 @@ checker'' (l1, l2, x) | (length l1) /= (length l2) = "ERROR: input and output nu
 
 
 --you may manually add or remove test cases here
-isNumIn = ["", "123", "abc", "123a456", "-123", "123-", "123.4", " 12", "12 ", "0x1b"]
-isNumOut = [False, True, False, False, True, False, False, False, False, False]
+isNumIn = ["", "123", "abc", "123a456", "-123", "123-", "123.4", " 12", "12 ", "0x1b", "  ", "-a", "-", "-97629", "\n", "\t"]
+isNumOut = [False, True, False, False, True, False, False, False, False, False, False, False, False, True, False, False]
 
 eagerEvalIn = [
                (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "3") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "4") EmptyAST EmptyAST) EmptyAST)) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST))), 
@@ -44,7 +44,10 @@ eagerEvalIn = [
                (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "15") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "17") EmptyAST EmptyAST) EmptyAST)) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "3") EmptyAST EmptyAST) EmptyAST)),
                (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "15") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "20") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST))),
                (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "times") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "3") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "4") EmptyAST EmptyAST) EmptyAST)) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTLetDatum "y") (ASTNode (ASTSimpleDatum "negate") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "14") EmptyAST EmptyAST) EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "times") (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST) (ASTNode (ASTSimpleDatum "y") EmptyAST EmptyAST))) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST))),
-               (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "15") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "12") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "27") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST))))]
+               (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "15") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "12") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "27") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST)))),
+               (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "2") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "3") EmptyAST EmptyAST) EmptyAST)) (ASTNode (ASTLetDatum "y") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "4") EmptyAST EmptyAST) EmptyAST)(ASTNode (ASTLetDatum "z") (ASTNode(ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "5") EmptyAST EmptyAST)EmptyAST)(ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST)) (ASTNode (ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "x") EmptyAST EmptyAST)(ASTNode(ASTSimpleDatum "y")EmptyAST EmptyAST))(ASTNode(ASTSimpleDatum "z") EmptyAST EmptyAST))))),
+               (ASTNode (ASTSimpleDatum "plus") (ASTNode(ASTLetDatum "x") (ASTNode(ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST) (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "2") EmptyAST EmptyAST)EmptyAST)) (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "x") EmptyAST EmptyAST) (ASTNode(ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST))) (ASTNode(ASTLetDatum "y") (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST)(ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "2") EmptyAST EmptyAST)EmptyAST)) (ASTNode(ASTSimpleDatum "plus")(ASTNode(ASTSimpleDatum "y") EmptyAST EmptyAST)(ASTNode(ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "3") EmptyAST EmptyAST)EmptyAST)))),
+               (ASTNode(ASTSimpleDatum "cat") (ASTNode(ASTSimpleDatum "str") (ASTNode(ASTSimpleDatum "a") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "str")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST) EmptyAST))]
 eagerEvalOut = [
                 (ASTJust ("14","num",2)), 
                 (ASTJust ("8","num",2)), 
@@ -54,7 +57,10 @@ eagerEvalOut = [
                 (ASTJust ("3","num",1)),
                 (ASTJust ("20","num",0)),
                 (ASTJust ("-156","num",4)),
-                (ASTJust ("54","num",2))]
+                (ASTJust ("54","num",2)),
+                (ASTJust ("15","num",4)),
+                (ASTJust ("10","num",5)),
+                (ASTJust ("a1","str",1))]
 
 normalEvalIn = [
                  (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "3") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "4") EmptyAST EmptyAST) EmptyAST)) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST))), 
@@ -65,7 +71,10 @@ normalEvalIn = [
                  (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "15") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "17") EmptyAST EmptyAST) EmptyAST)) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "3") EmptyAST EmptyAST) EmptyAST)),
                  (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "15") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "20") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST))),
                  (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "times") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "3") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "4") EmptyAST EmptyAST) EmptyAST)) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTLetDatum "y") (ASTNode (ASTSimpleDatum "negate") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "14") EmptyAST EmptyAST) EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "times") (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST) (ASTNode (ASTSimpleDatum "y") EmptyAST EmptyAST))) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST))),
-                 (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "15") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "12") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "27") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST))))]
+                 (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "15") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "12") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "27") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "x") EmptyAST EmptyAST)))),
+                 (ASTNode (ASTLetDatum "x") (ASTNode (ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "2") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "3") EmptyAST EmptyAST) EmptyAST)) (ASTNode (ASTLetDatum "y") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "4") EmptyAST EmptyAST) EmptyAST)(ASTNode (ASTLetDatum "z") (ASTNode(ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "5") EmptyAST EmptyAST)EmptyAST)(ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST)) (ASTNode (ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "x") EmptyAST EmptyAST)(ASTNode(ASTSimpleDatum "y")EmptyAST EmptyAST))(ASTNode(ASTSimpleDatum "z") EmptyAST EmptyAST))))),
+                 (ASTNode (ASTSimpleDatum "plus") (ASTNode(ASTLetDatum "x") (ASTNode(ASTSimpleDatum "plus") (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST) (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "2") EmptyAST EmptyAST)EmptyAST)) (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "x") EmptyAST EmptyAST) (ASTNode(ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST))) (ASTNode(ASTLetDatum "y") (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST)(ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "2") EmptyAST EmptyAST)EmptyAST)) (ASTNode(ASTSimpleDatum "plus")(ASTNode(ASTSimpleDatum "y") EmptyAST EmptyAST)(ASTNode(ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "3") EmptyAST EmptyAST)EmptyAST)))),
+                 (ASTNode(ASTSimpleDatum "cat") (ASTNode(ASTSimpleDatum "str") (ASTNode(ASTSimpleDatum "a") EmptyAST EmptyAST) EmptyAST) (ASTNode (ASTSimpleDatum "str")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST) EmptyAST))]
 normalEvalOut = [
                  (ASTJust ("14","num",3)), 
                  (ASTJust ("8","num",1)), 
@@ -75,7 +84,10 @@ normalEvalOut = [
                  (ASTJust ("3","num",0)),
                  (ASTJust ("20","num",0)),
                  (ASTJust ("-156","num",5)),
-                 (ASTJust ("54","num",2))]
+                 (ASTJust ("54","num",2)),
+                 (ASTJust ("15","num",4)),
+                 (ASTJust ("10","num",5)),
+                 (ASTJust ("a1","str",1))]
 
 --eager and normal evaluation must have same outputs for errors, as stated in error_handling.txt
 funErrIn = [
@@ -93,7 +105,9 @@ funErrIn = [
             (ASTNode (ASTSimpleDatum "len") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "123") EmptyAST EmptyAST) EmptyAST) EmptyAST),
             (ASTNode (ASTSimpleDatum "len") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "123x") EmptyAST EmptyAST) EmptyAST) EmptyAST),
             (ASTNode (ASTSimpleDatum "negate") (ASTNode (ASTSimpleDatum "num") (ASTNode (ASTSimpleDatum "123x") EmptyAST EmptyAST) EmptyAST) EmptyAST),
-            (ASTNode (ASTSimpleDatum "negate") (ASTNode (ASTSimpleDatum "str") (ASTNode (ASTSimpleDatum "123x") EmptyAST EmptyAST) EmptyAST) EmptyAST)
+            (ASTNode (ASTSimpleDatum "negate") (ASTNode (ASTSimpleDatum "str") (ASTNode (ASTSimpleDatum "123x") EmptyAST EmptyAST) EmptyAST) EmptyAST),
+            (ASTNode (ASTSimpleDatum "plus") (ASTNode(ASTLetDatum "x") (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST) (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "2") EmptyAST EmptyAST)EmptyAST)) (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "x") EmptyAST EmptyAST) (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST))) (ASTNode(ASTLetDatum "y") (ASTNode(ASTSimpleDatum "cat") (ASTNode (ASTSimpleDatum "str")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST) (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "2") EmptyAST EmptyAST)EmptyAST)) (ASTNode(ASTSimpleDatum "plus")(ASTNode(ASTSimpleDatum "y") EmptyAST EmptyAST)(ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "3") EmptyAST EmptyAST)EmptyAST)))),
+            (ASTNode (ASTSimpleDatum "plus") (ASTNode(ASTLetDatum "x") (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST) (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "2") EmptyAST EmptyAST)EmptyAST)) (ASTNode(ASTSimpleDatum "plus") (ASTNode(ASTSimpleDatum "x") EmptyAST EmptyAST) (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST))) (ASTNode(ASTLetDatum "y") (ASTNode(ASTSimpleDatum "cat") (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "1") EmptyAST EmptyAST)EmptyAST) (ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "2") EmptyAST EmptyAST)EmptyAST)) (ASTNode(ASTSimpleDatum "plus")(ASTNode(ASTSimpleDatum "y") EmptyAST EmptyAST)(ASTNode (ASTSimpleDatum "num")(ASTNode(ASTSimpleDatum "3") EmptyAST EmptyAST)EmptyAST))))
             ]
 
 funErrOut = [
@@ -111,7 +125,9 @@ funErrOut = [
              (ASTError "len operation is not defined on num!"),
              (ASTError "the value '123x' is not a number!"),
              (ASTError "the value '123x' is not a number!"),
-             (ASTError "negate operation is not defined on str!")
+             (ASTError "negate operation is not defined on str!"),
+             (ASTError "cat operation is not defined between str and num!"),
+             (ASTError "cat operation is not defined between num and num!")
              ]
 
 

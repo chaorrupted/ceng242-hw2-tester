@@ -1,7 +1,8 @@
 import Hw2
 
 
-help = putStrLn "try \"test 1\" for isNumber, \"test 2\" for eagerEvaluation and \"test 3\" for normalEvaluation. \n\
+help = putStrLn "try \"test 0\" to run all tests.\n\
+\try \"test 1\" for isNumber, \"test 2\" for eagerEvaluation and \"test 3\" for normalEvaluation. \n\
 \try \"test 29\" for eagerEvaluation with erroneous inputs, and \"test 39\" for normalEvaluation with erroneous inputs."
 
 
@@ -128,5 +129,12 @@ test 29 = putStrLn $ "testing eagerEvaluation with erroneous inputs.."
 
 test 39 = putStrLn $ "testing normalEvaluation with erroneous inputs.."
           ++"\n"++  checker'' (funErrOut, (map normalEvaluation funErrIn), 0)
+
+test 0 = do
+          test 1
+          test 2
+          test 3
+          test 29
+          test 39
 
 test _ = help

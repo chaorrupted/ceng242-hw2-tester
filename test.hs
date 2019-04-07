@@ -124,7 +124,7 @@ test 3 = putStrLn $ "testing normalEvaluation.."
          ++"\n"++  checker'' (normalEvalOut, (map normalEvaluation normalEvalIn), 0)
 
 test 29 = putStrLn $ "testing eagerEvaluation with erroneous inputs.."
-          ++"\n"++  checker'' (funErrOut, (map normalEvaluation funErrIn), 0)
+          ++"\n"++  checker'' (funErrOut, (map eagerEvaluation funErrIn), 0)
 
 test 39 = putStrLn $ "testing normalEvaluation with erroneous inputs.."
           ++"\n"++  checker'' (funErrOut, (map normalEvaluation funErrIn), 0)

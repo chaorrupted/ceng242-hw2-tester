@@ -21,3 +21,6 @@ Ok, two modules loaded.
 
 ## more?
 To add and/or remove test cases, you can edit the source code directly. Pull requests are appreciated :)
+
+
+Also the "trees" folder includes some visual tree examples that are mentioned in the code to provide a better problem solving environment.

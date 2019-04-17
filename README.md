@@ -18,9 +18,26 @@ Ok, two modules loaded.
 *Main> help
 ```
 
-
 ## more?
 To add and/or remove test cases, you can edit the source code directly. Pull requests are appreciated :)
 
 
 Also the "trees" folder includes some visual tree examples that are mentioned in the code to provide a better problem solving environment.
+
+## where did I do wrong?
+
+You can now load officials.hs file instead of the tester and test your homework with the graded cases.
+
+```
+ghci
+
+Prelude> :l officials.hs
+
+[1 of 2] Compiling Hw2              ( Hw2.hs, interpreted )
+
+[2 of 2] Compiling Main             ( officals.hs, interpreted )
+
+Ok, two modules loaded.
+
+*Main> help
+```

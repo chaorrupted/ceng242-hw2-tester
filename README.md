@@ -26,16 +26,16 @@ Also the "trees" folder includes some visual tree examples that are mentioned in
 
 ## where did I do wrong?
 
-You can now load officials.hs file instead of the tester and test your homework with the graded cases.
+You can now load official.hs file instead of the tester and test your homework with the graded cases.
 
 ```
 ghci
 
-Prelude> :l officials.hs
+Prelude> :l official.hs
 
 [1 of 2] Compiling Hw2              ( Hw2.hs, interpreted )
 
-[2 of 2] Compiling Main             ( officals.hs, interpreted )
+[2 of 2] Compiling Main             ( offical.hs, interpreted )
 
 Ok, two modules loaded.
 
